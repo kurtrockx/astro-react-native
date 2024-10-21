@@ -15,13 +15,13 @@ import Dashboard from "./pages/dashboard";
 import AboutUs from "./pages/aboutUs";
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState("Dashboard");
+  const [currentPage, setCurrentPage] = useState("Login");
   const pageRender = () => {
     switch (currentPage) {
       case "Login":
         return <LoginPage setCurrentPage={setCurrentPage} />;
       case "Dashboard":
-        return <Dashboard setCurrentPage={setCurrentPage}/>;
+        return <Dashboard setCurrentPage={setCurrentPage} />;
       case "About Us":
         return <AboutUs />;
       default:
@@ -38,9 +38,15 @@ export default function App() {
       <StatusBar />
 
       {pageRender()}
-      {/* <Button title="Login" onPress={() => (setCurrentPage("Login"))}></Button>
-      <Button title="Dashboard" onPress={() => (setCurrentPage("Dashboard"))}></Button>
-      <Button title="About Us" onPress={() => (setCurrentPage("About Us"))}></Button> */}
+      {/* <Button title="Login" onPress={() => setCurrentPage("Login")}></Button>
+      <Button
+        title="Dashboard"
+        onPress={() => setCurrentPage("Dashboard")}
+      ></Button>
+      <Button
+        title="About Us"
+        onPress={() => setCurrentPage("About Us")}
+      ></Button> */}
     </ImageBackground>
   );
 }

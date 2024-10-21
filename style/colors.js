@@ -1,8 +1,8 @@
 const colors = {
-  lightBlue: "#9ccddc",
-  mediumBlue: "#5591a9",
-  heavyBlue: "#054569",
-  heavierBlue: "#062c43",
+  light: "#f0f0f0",
+  medium: "#f2c586",
+  heavy: "#054569",
+  heavier: "#062c43",
   background: "#181818",
 };
 
