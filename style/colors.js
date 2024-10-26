@@ -1,9 +1,12 @@
 const colors = {
-  light: "#f0f0f0",
-  medium: "#f2c586",
-  heavy: "#054569",
+  light: "#b4cded",
+  medium: "#6892CC",
+  heavy: "#344966",
   heavier: "#062c43",
-  background: "#181818",
+  heaviest: "#0D1821",
+  darkGrey: "#1e1e1e",
+  blueGrey: "#7d92ad",
+  background: "#e9f0f8",
 };
 
 export default colors;
