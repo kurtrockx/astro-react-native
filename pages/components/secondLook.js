@@ -110,7 +110,11 @@ const secondLook = ({ style }) => {
               showsHorizontalScrollIndicator={false} // Optional: Hide scroll indicators
             >
               {branches.map((member, index) => (
-                <CustomSizedModal key={index} property={member} style={styles.modal}/>
+                <CustomSizedModal
+                  key={index}
+                  property={member}
+                  style={styles.modal}
+                />
               ))}
             </ScrollView>
           </View>

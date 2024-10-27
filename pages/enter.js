@@ -27,7 +27,7 @@ const Enter = ({ setCurrentPage }) => {
     <View style={styles.container}>
       {/* MOON */}
       <Image
-        source={require("../assets/images/moon.png")}
+        source={require("../assets/images/MOON.png")}
         style={styles.moonImage}
       />
 

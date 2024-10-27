@@ -8,9 +8,10 @@ import EnterPage from "./pages/enter";
 import LoginPage from "./pages/login";
 import Dashboard from "./pages/dashboard";
 import AboutUs from "./pages/aboutUs";
+import LoginToTheRight from "./pages/components/loginToTheRight";
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState("Login");
+  const [currentPage, setCurrentPage] = useState("Dashboard");
   const pageRender = () => {
     switch (currentPage) {
       case "Enter":

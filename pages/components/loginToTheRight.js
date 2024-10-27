@@ -17,7 +17,7 @@ import {
 } from "react-native-reanimated";
 import Animated from "react-native-reanimated";
 
-const Login = ({ setCurrentPage, style }) => {
+const LoginToTheRight = ({ setCurrentPage, style }) => {
   //ANIMATIONNNNN
   const opacityBegone = useSharedValue(1);
   useEffect(() => {
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
   },
   moonImage: {
     position: "absolute",
-    bottom: 461.5,
+    bottom: 489.5,
     width: 400,
     height: 400,
   },
@@ -231,4 +231,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login;
+export default LoginToTheRight;

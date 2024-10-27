@@ -15,7 +15,7 @@ const firstLook = ({ style }) => {
   //ANIMATIONNNNNNNNNNNN
   const fromLeft = useSharedValue(-400);
   useEffect(() => {
-    fromLeft.value = withDelay(200,
+    fromLeft.value = withDelay(300,
       withSpring(0, {
         damping: 100,
         stiffness: 200,
@@ -29,7 +29,7 @@ const firstLook = ({ style }) => {
   });
   const fromRight = useSharedValue(400);
   useEffect(() => {
-    fromRight.value = withDelay(200,
+    fromRight.value = withDelay(300,
       withSpring(0, {
         damping: 100,
         stiffness: 200,
@@ -44,7 +44,7 @@ const firstLook = ({ style }) => {
 
   const opacityBegone = useSharedValue(0);
   useEffect(() => {
-    opacityBegone.value = withDelay(250, withTiming(1, { duration: 200 }));
+    opacityBegone.value = withDelay(350, withTiming(1, { duration: 200 }));
   }, []);
 
   const opacityStyle = useAnimatedStyle(() => {
