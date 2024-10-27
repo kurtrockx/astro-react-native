@@ -1,14 +1,11 @@
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-} from "react-native";
+import { StyleSheet, View, Text, Image } from "react-native";
 import { useFonts } from "expo-font";
 import React, { useEffect } from "react";
 import {
   useSharedValue,
   withSpring,
+  withTiming,
+  withDelay,
   useAnimatedStyle,
 } from "react-native-reanimated";
 import Animated from "react-native-reanimated";
@@ -25,6 +22,17 @@ const Banner = ({ style, style2 }) => {
   const fromUpStyle = useAnimatedStyle(() => {
     return {
       transform: [{ translateY: fromUp.value }],
+    };
+  });
+
+  const opacityBegone = useSharedValue(0);
+  useEffect(() => {
+    opacityBegone.value = withDelay(500, withTiming(1, { duration: 200 }));
+  }, []);
+
+  const opacityStyle = useAnimatedStyle(() => {
+    return {
+      opacity: opacityBegone.value,
     };
   });
 
@@ -51,12 +59,13 @@ const Banner = ({ style, style2 }) => {
           style={styles.titleLogo}
         />
       </View>
-
-      <Text style={styles.welcome}>Welcome to Astro!</Text>
-      <Text style={styles.welcomeDesc}>
-        Get ready to explore the incredible world of astronomy, where the
-        universe opens its doors to endless discoveries!
-      </Text>
+      <Animated.View style={opacityStyle}>
+        <Text style={styles.welcome}>Welcome to Astro!</Text>
+        <Text style={styles.welcomeDesc}>
+          Get ready to explore the incredible world of astronomy, where the
+          universe opens its doors to endless discoveries!
+        </Text>
+      </Animated.View>
     </Animated.View>
   );
 };

@@ -1,7 +1,59 @@
 import { StyleSheet, View, Text, Image } from "react-native";
 import { useFonts } from "expo-font";
 import Colors from "../../style/colors";
+import React, { useEffect } from "react";
+import Animated from "react-native-reanimated";
+import {
+  useSharedValue,
+  withSpring,
+  withTiming,
+  withDelay,
+  useAnimatedStyle,
+} from "react-native-reanimated";
+
 const firstLook = ({ style }) => {
+  //ANIMATIONNNNNNNNNNNN
+  const fromLeft = useSharedValue(-400);
+  useEffect(() => {
+    fromLeft.value = withDelay(200,
+      withSpring(0, {
+        damping: 100,
+        stiffness: 200,
+      })
+    );
+  }, []);
+  const fromLeftStyle = useAnimatedStyle(() => {
+    return {
+      transform: [{ translateX: fromLeft.value }],
+    };
+  });
+  const fromRight = useSharedValue(400);
+  useEffect(() => {
+    fromRight.value = withDelay(200,
+      withSpring(0, {
+        damping: 100,
+        stiffness: 200,
+      })
+    );
+  }, []);
+  const fromRightStyle = useAnimatedStyle(() => {
+    return {
+      transform: [{ translateX: fromRight.value }],
+    };
+  });
+
+  const opacityBegone = useSharedValue(0);
+  useEffect(() => {
+    opacityBegone.value = withDelay(250, withTiming(1, { duration: 200 }));
+  }, []);
+
+  const opacityStyle = useAnimatedStyle(() => {
+    return {
+      opacity: opacityBegone.value,
+    };
+  });
+
+
   // FONTSSSSS
   const [fontsLoaded] = useFonts({
     "LeagueSpartan-Bold": require("../../assets/fonts/LeagueSpartan-Bold.ttf"),
@@ -13,40 +65,42 @@ const firstLook = ({ style }) => {
   // FONTSSSSS
 
   return (
-    <View style={[styles.container, style]}>
+    <Animated.View style={[styles.container, style, opacityStyle]}>
       <Image
         source={require("../../assets/dashboardPics/firstAstronaut.png")}
         style={styles.firstAstronaut}
         resizeMode="contain"
       />
       <View style={styles.discover}>
-        <Text style={styles.discoText}>DISCOVER</Text>
-        <View style={styles.card}>
+        <View style={styles.discoverTextContainer}>
+          <Text style={styles.discoText}>DISCOVER</Text>
+        </View>
+        <Animated.View style={[styles.card, fromLeftStyle]}>
           <Image
             source={require("../../assets/dashboardPics/introAstronomy.png")}
             style={styles.cardImage}
             resizeMode="contain"
           />
-        </View>
-        <View style={styles.card}>
+        </Animated.View>
+        <Animated.View style={[styles.card, fromRightStyle]}>
           <Image
             source={require("../../assets/dashboardPics/introCelestial.png")}
             style={styles.cardImage}
             resizeMode="contain"
           />
-        </View>
-        <View style={styles.card}>
+        </Animated.View>
+        <Animated.View style={[styles.card, fromLeftStyle]}>
           <Image
             source={require("../../assets/dashboardPics/introSpace.png")}
             style={styles.cardImage}
             resizeMode="contain"
           />
-        </View>
+        </Animated.View>
       </View>
       <View style={styles.start}>
         <Text style={styles.startText}>START LEARNING</Text>
       </View>
-    </View>
+    </Animated.View>
   );
 };
 
@@ -56,8 +110,11 @@ const styles = StyleSheet.create({
     marginVertical: 0,
     width: 310,
     height: 500,
+    overflow: "hidden",
   },
   firstAstronaut: {
+    position: "relative",
+    zIndex: 100000,
     margin: "auto",
     marginVertical: 4,
     width: 40,
@@ -73,11 +130,17 @@ const styles = StyleSheet.create({
     gap: 8,
     paddingVertical: 16,
   },
+  discoverTextContainer: {
+    position: "absolute",
+    width: 80,
+    height: 30,
+    left: "50%",
+    transform: [{ translateX: -40 }],
+    top: -14,
+    backgroundColor: Colors.background,
+  },
   discoText: {
     fontFamily: "LeagueSpartan-Medium",
-    position: "absolute",
-    width: "100%",
-    top: -14,
     fontSize: 18,
     textAlign: "center",
   },

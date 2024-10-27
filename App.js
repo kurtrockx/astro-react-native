@@ -10,7 +10,7 @@ import Dashboard from "./pages/dashboard";
 import AboutUs from "./pages/aboutUs";
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState("Enter");
+  const [currentPage, setCurrentPage] = useState("Login");
   const pageRender = () => {
     switch (currentPage) {
       case "Enter":
@@ -35,20 +35,11 @@ export default function App() {
       <StatusBar />
       {/* GRADIENT */}
       <LinearGradient
-        colors={['white', "transparent"]}
+        colors={["white", "transparent"]}
         style={styles.gradient}
       />
 
       {pageRender()}
-      {/* <Button title="Login" onPress={() => setCurrentPage("Login")}></Button>
-      <Button
-        title="Dashboard"
-        onPress={() => setCurrentPage("Dashboard")}
-      ></Button>
-      <Button
-        title="About Us"
-        onPress={() => setCurrentPage("About Us")}
-      ></Button> */}
     </View>
   );
 }

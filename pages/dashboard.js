@@ -17,6 +17,7 @@ import { useState, useEffect } from "react";
 import Banner from "./components/banner";
 import FirstLook from "./components/firstLook";
 import SecondLook from "./components/secondLook";
+import LoginRight from "./components/loginToTheRight";
 
 const branches = [
   {
@@ -64,7 +65,6 @@ const astronomers = [
 ];
 
 const Enter = ({ setCurrentPage }) => {
-
   //ANIMATIONNNNNNNNNNNN
 
   // FONTSSSSS
@@ -78,6 +78,7 @@ const Enter = ({ setCurrentPage }) => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
+      <LoginRight style={styles.loginRight} />
       <Banner />
       <FirstLook style={styles.firstLook} />
       <SecondLook style={styles.secondLook} />
@@ -100,7 +101,11 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     paddingBottom: 20,
   },
-  firstLook: {},
+  loginRight: {
+    position: "absolute",
+    width: '100%',
+    height: '100%',
+  },
   mainContent: {
     paddingHorizontal: 16,
     paddingTop: 14,

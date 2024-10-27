@@ -7,175 +7,119 @@ import {
   Image,
   TouchableHighlight,
 } from "react-native";
-import Colors from "../style/colors";
+import Colors from "../../style/colors";
 import { useFonts } from "expo-font";
 import {
   useSharedValue,
-  withSpring,
+  withDelay,
+  withTiming,
   useAnimatedStyle,
 } from "react-native-reanimated";
 import Animated from "react-native-reanimated";
 
-const Login = ({ setCurrentPage }) => {
-  //ANIMATED TOUCHABLE HIGHLIGHT
-  const AnimatedTouchableHighlight =
-    Animated.createAnimatedComponent(TouchableHighlight);
+const Login = ({ setCurrentPage, style }) => {
+  //ANIMATIONNNNN
+  const opacityBegone = useSharedValue(1);
+  useEffect(() => {
+    opacityBegone.value = withDelay(0, withTiming(0, { duration: 200 }));
+  }, []);
+
+  const opacityStyle = useAnimatedStyle(() => {
+    return {
+      opacity: opacityBegone.value,
+    };
+  });
 
   // FONTSSSSS
   const [fontsLoaded] = useFonts({
-    "LeagueSpartan-Bold": require("../assets/fonts/LeagueSpartan-Bold.ttf"),
-    "LeagueGothic-Regular": require("../assets/fonts/LeagueGothic-Regular.ttf"),
+    "LeagueSpartan-Bold": require("../../assets/fonts/LeagueSpartan-Bold.ttf"),
+    "LeagueGothic-Regular": require("../../assets/fonts/LeagueGothic-Regular.ttf"),
   });
-  if (!fontsLoaded) return;
-  // FONTSSSSS
+  if (!fontsLoaded) return null; // Return null instead of undefined
 
   //ANIMATION
-  const astronaut = useSharedValue(-400);
-  useEffect(() => {
-    astronaut.value = withSpring(0, {
-      damping: 22,
-      stiffness: 200,
-    });
-  }, []);
-  const astronautStyle = useAnimatedStyle(() => {
-    return {
-      transform: [{ translateY: astronaut.value }],
-    };
-  });
 
-  const astroTranslateX = useSharedValue(40);
-  useEffect(() => {
-    astroTranslateX.value = withSpring(0, {
-      damping: 200, //bounce
-      stiffness: 200, //duration
-    });
-  }, []);
-  const astroStyle = useAnimatedStyle(() => {
-    return {
-      transform: [{ translateX: astroTranslateX.value }],
-    };
-  });
-
-  const moonRotate = useSharedValue(90);
-  useEffect(() => {
-    moonRotate.value = withSpring(0, {
-      damping: 22, //bounce
-      stiffness: 200, //duration
-    });
-  }, []);
-  const moonStyle = useAnimatedStyle(() => {
-    return {
-      transform: [{ rotate: `${moonRotate.value}deg` }],
-    };
-  });
-
-  const translateLeft = useSharedValue(400);
-  useEffect(() => {
-    translateLeft.value = withSpring(0, {
-      damping: 50, //bounce
-      stiffness: 500, //duration
-    });
-  }, []);
-  const translateLeftStyle = useAnimatedStyle(() => {
-    return {
-      transform: [{ translateX: translateLeft.value }],
-    };
-  });
-
-  const opacity = useSharedValue(0);
-  useEffect(() => {
-    opacity.value = withSpring(1, {
-      damping: 50, // bounce
-      stiffness: 800, // duration
-    });
-  }, []);
-  const opacityStyle = useAnimatedStyle(() => {
-    return {
-      opacity: opacity.value,
-    };
-  });
   return (
-    <View style={styles.container}>
+    <Animated.View style={[styles.container, style, opacityStyle]}>
       {/* MOON */}
-      <Animated.Image
-        source={require("../assets/images/MOON 90.png")}
-        style={[styles.moonImage, moonStyle]}
+      <Image
+        source={require("../../assets/images/MOON 90.png")}
+        style={[styles.moonImage]}
       />
 
       <View style={styles.title}>
-        <Animated.Text style={[styles.astro, astroStyle]}>ASTRO</Animated.Text>
-        <Animated.Text style={[styles.infinity, opacityStyle]}>
+        <Text style={[styles.astro]}>ASTRO</Text>
+        <Text style={[styles.infinity]}>
           <Text>"To </Text>
           <Text style={styles.colorBlue}>Infinity </Text>
           <Text>and </Text>
           <Text style={styles.colorBlue}>Beyond"</Text>
-        </Animated.Text>
-        <Animated.Image
-          source={require("../assets/images/sitAstro.png")}
-          style={[styles.sitAstro, astronautStyle]}
+        </Text>
+        <Image
+          source={require("../../assets/images/sitAstro.png")}
+          style={[styles.sitAstro]}
         />
       </View>
 
       {/* BUTTONS */}
-      <AnimatedTouchableHighlight
-        style={[styles.button, styles.btn1, translateLeftStyle]}
+      <TouchableHighlight
+        style={[styles.button, styles.btn1]}
         onPress={() => setCurrentPage("Login")}
         underlayColor={Colors.medium}
       >
         <Text style={[styles.ButtonText, styles.btn1Text]}>Log In</Text>
-      </AnimatedTouchableHighlight>
+      </TouchableHighlight>
       {/* 2nd BUTTON */}
-      <AnimatedTouchableHighlight
-        style={[styles.button, styles.btn2, translateLeftStyle]}
+      <TouchableHighlight
+        style={[styles.button, styles.btn2]}
         onPress={() => setCurrentPage("Enter")}
         underlayColor={Colors.medium}
       >
         <Text style={[styles.ButtonText, styles.btn2Text]}>About Us</Text>
-      </AnimatedTouchableHighlight>
+      </TouchableHighlight>
 
       {/* InputField */}
-      <Animated.View style={[styles.inputTextContainer, translateLeftStyle]}>
+      <View style={[styles.inputTextContainer]}>
         <View style={styles.iconTextContainer}>
           <Image
-            source={require("../assets/images/UserLogo.png")}
+            source={require("../../assets/images/UserLogo.png")}
             style={[styles.icon, styles.userIcon]}
           />
           <TextInput style={styles.inputText} placeholder="Email" />
         </View>
         <View style={styles.iconTextContainer}>
           <Image
-            source={require("../assets/images/LockLogo.png")}
+            source={require("../../assets/images/LockLogo.png")}
             style={[styles.icon, styles.lockIcon]}
           />
           <TextInput style={styles.inputText} placeholder="Password" />
           <Image
-            source={require("../assets/images/EyeOffLogo.png")}
+            source={require("../../assets/images/EyeOffLogo.png")}
             style={[styles.icon, styles.eyeIcon]}
           />
         </View>
         <Text style={styles.forgot}>Forgot Password</Text>
         {/* Button */}
-        <AnimatedTouchableHighlight
-          style={[styles.loginButton, translateLeftStyle]}
+        <TouchableHighlight
+          style={[styles.loginButton]}
           onPress={() => setCurrentPage("Dashboard")}
           underlayColor={Colors.medium}
         >
           <Text style={styles.loginButtonText}>Login</Text>
-        </AnimatedTouchableHighlight>
-      </Animated.View>
-    </View>
+        </TouchableHighlight>
+      </View>
+    </Animated.View>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
-    position: "relative",
-    flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },
   moonImage: {
     position: "absolute",
-    bottom: -220,
+    bottom: 461.5,
     width: 400,
     height: 400,
   },

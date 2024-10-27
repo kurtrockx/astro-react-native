@@ -110,7 +110,7 @@ const secondLook = ({ style }) => {
               showsHorizontalScrollIndicator={false} // Optional: Hide scroll indicators
             >
               {branches.map((member, index) => (
-                <CustomSizedModal key={index} property={member} />
+                <CustomSizedModal key={index} property={member} style={styles.modal}/>
               ))}
             </ScrollView>
           </View>
@@ -130,16 +130,15 @@ const secondLook = ({ style }) => {
               ))}
             </ScrollView>
           </View>
-
           <View style={styles.sectionContainer}>
             <Text style={styles.sectionHeader}>Space Tools & Gadgets</Text>
             <Text style={styles.sectionDesc}>
               Meet some of the well-known astronomers:
             </Text>
             <ScrollView
-              horizontal={true} // Enable horizontal scrolling
+              horizontal={true}
               contentContainerStyle={styles.modalContainer}
-              showsHorizontalScrollIndicator={false} // Optional: Hide scroll indicators
+              showsHorizontalScrollIndicator={false}
             >
               {tools.map((member, index) => (
                 <CustomSizedModal key={index} property={member} />

@@ -15,7 +15,7 @@ import {
 } from "react-native-reanimated";
 import Animated from "react-native-reanimated";
 
-const CustomSizedModal = ({ property }) => {
+const CustomSizedModal = ({ property, style }) => {
   // State to determine if the info is shown or hidden
   const [showInfo, setShowInfo] = useState(false);
 
@@ -42,7 +42,7 @@ const CustomSizedModal = ({ property }) => {
 
   return (
     <TouchableWithoutFeedback onPress={toggleModal}>
-      <View style={styles.modal}>
+      <View style={[styles.modal, style]}>
         <Animated.View style={[styles.modalPic, imageStyle]}>
           <Image
             source={property.pic}
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     height: "100%",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "Colors.heaviest", // Semi-transparent background for the info
+    backgroundColor: "Colors.heaviest",
   },
   infoText: {
     fontSize: 7.5,
