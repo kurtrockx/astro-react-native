@@ -21,7 +21,7 @@ const LoginToTheRight = ({ setCurrentPage, style }) => {
   //ANIMATIONNNNN
   const opacityBegone = useSharedValue(1);
   useEffect(() => {
-    opacityBegone.value = withDelay(0, withTiming(0, { duration: 200 }));
+    opacityBegone.value = withDelay(0, withTiming(0, { duration: 400 }));
   }, []);
 
   const opacityStyle = useAnimatedStyle(() => {
@@ -42,9 +42,9 @@ const LoginToTheRight = ({ setCurrentPage, style }) => {
   return (
     <Animated.View style={[styles.container, style, opacityStyle]}>
       {/* MOON */}
-      <Image
+      <Animated.Image
         source={require("../../assets/images/MOON 90.png")}
-        style={[styles.moonImage]}
+        style={[styles.moonImage, opacityStyle]}
       />
 
       <View style={styles.title}>
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
   },
   moonImage: {
     position: "absolute",
-    bottom: 489.5,
+    bottom: 1766,
     width: 400,
     height: 400,
   },

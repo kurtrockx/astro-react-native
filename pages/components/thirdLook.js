@@ -6,79 +6,79 @@ import ThirdLookModals from "../components/thirdLookModals";
 const thirdLook = ({ style }) => {
   const planets = [
     {
-      logo: require("../../assets/images/thirdModalPics/planets1.png"),
+      logo: require("../../assets/images/thirdModalPics/min/planets1-min.png"),
     },
     {
-      logo: require("../../assets/images/thirdModalPics/planets2.png"),
+      logo: require("../../assets/images/thirdModalPics/min/planets2-min.png"),
     },
     {
-      logo: require("../../assets/images/thirdModalPics/planets3.png"),
+      logo: require("../../assets/images/thirdModalPics/min/planets3-min.png"),
     },
     {
-      logo: require("../../assets/images/thirdModalPics/planets4.png"),
+      logo: require("../../assets/images/thirdModalPics/min/planets4-min.png"),
     },
     {
-      logo: require("../../assets/images/thirdModalPics/planets5.png"),
+      logo: require("../../assets/images/thirdModalPics/min/planets5-min.png"),
     },
     {
-      logo: require("../../assets/images/thirdModalPics/planets6.png"),
+      logo: require("../../assets/images/thirdModalPics/min/planets6-min.png"),
     },
     {
-      logo: require("../../assets/images/thirdModalPics/planets7.png"),
+      logo: require("../../assets/images/thirdModalPics/min/planets7-min.png"),
     },
     {
-      logo: require("../../assets/images/thirdModalPics/planets8.png"),
+      logo: require("../../assets/images/thirdModalPics/min/planets8-min.png"),
     },
   ];
   const moons = [
     {
-      logo: require("../../assets/images/thirdModalPics/moon1.png"),
+      logo: require("../../assets/images/thirdModalPics/min/moon1-min.png"),
     },
     {
-      logo: require("../../assets/images/thirdModalPics/moon2.png"),
+      logo: require("../../assets/images/thirdModalPics/min/moon2-min.png"),
     },
     {
-      logo: require("../../assets/images/thirdModalPics/moon3.png"),
+      logo: require("../../assets/images/thirdModalPics/min/moon3-min.png"),
     },
     {
-      logo: require("../../assets/images/thirdModalPics/moon4.png"),
+      logo: require("../../assets/images/thirdModalPics/min/moon4-min.png"),
     },
   ];
   const stars = [
     {
-      logo: require("../../assets/images/thirdModalPics/star1.png"),
+      logo: require("../../assets/images/thirdModalPics/min/star1-min.png"),
     },
     {
-      logo: require("../../assets/images/thirdModalPics/star2.png"),
+      logo: require("../../assets/images/thirdModalPics/min/star2-min.png"),
     },
     {
-      logo: require("../../assets/images/thirdModalPics/star3.png"),
+      logo: require("../../assets/images/thirdModalPics/min/star3-min.png"),
     },
     {
-      logo: require("../../assets/images/thirdModalPics/star4.png"),
+      logo: require("../../assets/images/thirdModalPics/min/star4-min.png"),
     },
     {
-      logo: require("../../assets/images/thirdModalPics/star5.png"),
+      logo: require("../../assets/images/thirdModalPics/min/star5-min.png"),
     },
   ];
   const gal = [
     {
-      logo: require("../../assets/images/thirdModalPics/gal1.png"),
+      logo: require("../../assets/images/thirdModalPics/min/gal1-min.png"),
     },
     {
-      logo: require("../../assets/images/thirdModalPics/gal2.png"),
+      logo: require("../../assets/images/thirdModalPics/min/gal2-min.png"),
     },
     {
-      logo: require("../../assets/images/thirdModalPics/gal3.png"),
+      logo: require("../../assets/images/thirdModalPics/min/gal3-min.png"),
     },
     {
-      logo: require("../../assets/images/thirdModalPics/gal4.png"),
+      logo: require("../../assets/images/thirdModalPics/min/gal4-min.png"),
     },
     {
-      logo: require("../../assets/images/thirdModalPics/gal5.png"),
+      logo: require("../../assets/images/thirdModalPics/min/gal5-min.png"),
     },
     {
-      logo: require("../../assets/images/thirdModalPics/gal6.png"),
+      logo: require("../../assets/images/thirdModalPics/min/gal6-min.png"),
     },
   ];
 
@@ -196,21 +196,21 @@ const thirdLook = ({ style }) => {
         <Text style={styles.whatTitle}>ASTEROIDS & COMETS</Text>
         <View style={styles.astero}>
           <Image
-            source={require("../../assets/images/ASTEROIDS/astro1.png")}
+            source={require("../../assets/images/ASTEROIDS/astro1-min.png")}
             resizeMode="contain"
             style={styles.asteroImg}
           />
         </View>
         <View style={styles.astero}>
           <Image
-            source={require("../../assets/images/ASTEROIDS/astro2.png")}
+            source={require("../../assets/images/ASTEROIDS/astro2-min.png")}
             resizeMode="contain"
             style={styles.asteroImg}
           />
         </View>
         <View style={styles.astero}>
           <Image
-            source={require("../../assets/images/ASTEROIDS/astro3.png")}
+            source={require("../../assets/images/ASTEROIDS/astro3-min.png")}
             resizeMode="contain"
             style={styles.asteroImg}
           />

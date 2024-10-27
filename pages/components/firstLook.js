@@ -77,21 +77,21 @@ const firstLook = ({ style }) => {
         </View>
         <Animated.View style={[styles.card, fromLeftStyle]}>
           <Image
-            source={require("../../assets/dashboardPics/introAstronomy.png")}
+            source={require("../../assets/dashboardPics/introAstronomy-min.png")}
             style={styles.cardImage}
             resizeMode="contain"
           />
         </Animated.View>
         <Animated.View style={[styles.card, fromRightStyle]}>
           <Image
-            source={require("../../assets/dashboardPics/introCelestial.png")}
+            source={require("../../assets/dashboardPics/introCelestial-min.png")}
             style={styles.cardImage}
             resizeMode="contain"
           />
         </Animated.View>
         <Animated.View style={[styles.card, fromLeftStyle]}>
           <Image
-            source={require("../../assets/dashboardPics/introSpace.png")}
+            source={require("../../assets/dashboardPics/introSpace-min.png")}
             style={styles.cardImage}
             resizeMode="contain"
           />

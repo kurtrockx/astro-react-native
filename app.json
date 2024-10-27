@@ -18,13 +18,19 @@
       "adaptiveIcon": {
         "foregroundImage": "",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.kurtrockx.appdev2"
     },
     "web": {
       "favicon": ""
     },
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "618a0d82-7533-4798-a115-8adb09702359"
+      }
+    }
   }
 }

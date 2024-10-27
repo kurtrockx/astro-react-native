@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, Image, ScrollView } from "react-native";
+import { StyleSheet, View, Text, ScrollView } from "react-native";
 import { useFonts } from "expo-font";
 import Colors from "../../style/colors";
 import CustomSizedModal from "../components/modals";
@@ -8,66 +8,66 @@ const secondLook = ({ style }) => {
     {
       logo: require("../../assets/images/modalPics/branches/solar.png"),
       desc: "The study of the physics behind celestial bodies and phenomena (e.g., gravity, radiation, black holes).",
-      pic: require("../../assets/images/modalPics/branches/astrophy1.png"),
+      pic: require("../../assets/images/modalPics/branches/astrophy1-min.png"),
     },
     {
       logo: require("../../assets/images/modalPics/branches/saturn.png"),
       desc: "The branch of astronomy that deals with measuring the positions, distances, and motions of celestial bodies.",
-      pic: require("../../assets/images/modalPics/branches/ASTROMET.png"),
+      pic: require("../../assets/images/modalPics/branches/ASTROMET-min.png"),
     },
     {
       logo: require("../../assets/images/modalPics/branches/alien.png"),
       desc: "The study of the geological features of celestial bodies such as planets, moons, asteroids, and comets.",
-      pic: require("../../assets/images/modalPics/branches/ASTROBIO.png"),
+      pic: require("../../assets/images/modalPics/branches/ASTROBIO-min.png"),
     },
     {
       logo: require("../../assets/images/modalPics/branches/rocky-mountain.png"),
       desc: " The study of life in the universe, including its origins, evolution, and potential for existence beyond Earth.",
-      pic: require("../../assets/images/modalPics/branches/ASTROGEO.png"),
+      pic: require("../../assets/images/modalPics/branches/ASTROGEO-min.png"),
     },
   ];
   const astronomers = [
     {
       logo: require("../../assets/images/modalPics/astronomers/telescope.png"),
       desc: "The 'Father of Observational Astronomy' who supported the heliocentric model and used early telescopes.",
-      pic: require("../../assets/images/modalPics/astronomers/GALILEO GALILEI.png"),
+      pic: require("../../assets/images/modalPics/astronomers/GALILEO GALILEI-min.png"),
     },
     {
       logo: require("../../assets/images/modalPics/astronomers/orbit.png"),
       desc: "Discovered that galaxies are moving away from us, leading to the concept of the expanding universe.",
-      pic: require("../../assets/images/modalPics/astronomers/EDWIN HUBBLE.png"),
+      pic: require("../../assets/images/modalPics/astronomers/EDWIN HUBBLE-min.png"),
     },
     {
       logo: require("../../assets/images/modalPics/astronomers/black hole.png"),
       desc: "Stephen Hawking is known for his work on black holes and the nature of space-time.",
-      pic: require("../../assets/images/modalPics/astronomers/STEPHEN HAWKING.png"),
+      pic: require("../../assets/images/modalPics/astronomers/STEPHEN HAWKING-min.png"),
     },
     {
       logo: require("../../assets/images/modalPics/astronomers/comet.png"),
       desc: "Caroline Herschel was the first woman to discover a comet!",
-      pic: require("../../assets/images/modalPics/astronomers/CAROLINE HERSCHEL.png"),
+      pic: require("../../assets/images/modalPics/astronomers/CAROLINE HERSCHEL-min.png"),
     },
   ];
   const tools = [
     {
       logo: require("../../assets/images/modalPics/tools/tele.png"),
       desc: "Telescopes gather light and other types of electromagnetic radiation to observe distant stars, planets, and galaxies from Earth or space.",
-      pic: require("../../assets/images/modalPics/tools/telescope.png"),
+      pic: require("../../assets/images/modalPics/tools/telescope-min.png"),
     },
     {
       logo: require("../../assets/images/modalPics/tools/rov.png"),
       desc: "Space Rovers are robotic vehicles sent to explore and collect data from the surfaces of planets and moons.",
-      pic: require("../../assets/images/modalPics/tools/rover.png"),
+      pic: require("../../assets/images/modalPics/tools/rover-min.png"),
     },
     {
       logo: require("../../assets/images/modalPics/tools/sat.png"),
       desc: "Space Probes are uncrewed spacecraft launched to investigate planets, moons, comets, and more.",
-      pic: require("../../assets/images/modalPics/tools/probe.png"),
+      pic: require("../../assets/images/modalPics/tools/probe-min.png"),
     },
     {
       logo: require("../../assets/images/modalPics/tools/obs.png"),
       desc: "Observatories are facilities with  instruments that allow astronomers to  monitor and study celestial phenomena.",
-      pic: require("../../assets/images/modalPics/tools/observatory.png"),
+      pic: require("../../assets/images/modalPics/tools/observatory-min.png"),
     },
   ];
 
@@ -98,7 +98,6 @@ const secondLook = ({ style }) => {
               ond behavior.
             </Text>
           </View>
-
           <View style={styles.sectionContainer}>
             <Text style={styles.sectionHeader}>Branches of Anatomy</Text>
             <Text style={styles.sectionDesc}>
@@ -118,7 +117,6 @@ const secondLook = ({ style }) => {
               ))}
             </ScrollView>
           </View>
-
           <View style={styles.sectionContainer}>
             <Text style={styles.sectionHeader}>Famous Astronomers</Text>
             <Text style={styles.sectionDesc}>

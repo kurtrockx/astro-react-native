@@ -48,14 +48,14 @@ const Banner = ({ style, style2 }) => {
   return (
     <Animated.View style={[styles.container, fromUpStyle]}>
       <Image
-        source={require("../../assets/dashboardPics/banner.png")}
+        source={require("../../assets/dashboardPics/banner-min.png")}
         style={styles.imageContainer}
         resizeMode="contain"
       />
       <View style={styles.title}>
         <Text style={styles.textTitle}>ASTRO</Text>
         <Image
-          source={require("../../assets/images/sitAstro2.png")}
+          source={require("../../assets/images/sitAstro2-min.png")}
           style={styles.titleLogo}
         />
       </View>

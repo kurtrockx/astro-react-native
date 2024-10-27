@@ -1,17 +1,16 @@
-import { useState } from "react";
+import React, { useState, Suspense, lazy } from "react";
 import { StyleSheet, Text, View, StatusBar } from "react-native";
-
 import Colors from "./style/colors";
 import { LinearGradient } from "expo-linear-gradient";
 
-import EnterPage from "./pages/enter";
-import LoginPage from "./pages/login";
-import Dashboard from "./pages/dashboard";
-import AboutUs from "./pages/aboutUs";
-import LoginToTheRight from "./pages/components/loginToTheRight";
+const EnterPage = lazy(() => import("./pages/enter"));
+const LoginPage = lazy(() => import("./pages/login"));
+const Dashboard = lazy(() => import("./pages/dashboard"));
+const AboutUs = lazy(() => import("./pages/aboutUs"));
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState("Dashboard");
+  const [currentPage, setCurrentPage] = useState("Enter");
+
   const pageRender = () => {
     switch (currentPage) {
       case "Enter":
@@ -28,19 +27,14 @@ export default function App() {
   };
 
   return (
-    <View
-      source={require("./assets/dashboardPics/background.png")} // Local image
-      style={styles.mainContainer}
-      resizeMode="cover" // Optional, to control how the image is scaled
-    >
+    <View style={styles.mainContainer}>
       <StatusBar />
       {/* GRADIENT */}
       <LinearGradient
         colors={["white", "transparent"]}
         style={styles.gradient}
       />
-
-      {pageRender()}
+      <Suspense fallback={<Text>Loading...</Text>}>{pageRender()}</Suspense>
     </View>
   );
 }

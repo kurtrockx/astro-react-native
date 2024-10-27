@@ -98,7 +98,7 @@ const Login = ({ setCurrentPage }) => {
     <View style={styles.container}>
       {/* MOON */}
       <Animated.Image
-        source={require("../assets/images/MOON 90.png")}
+        source={require("../assets/images/MOON 90-min.png")}
         style={[styles.moonImage, moonStyle]}
       />
 
@@ -111,7 +111,7 @@ const Login = ({ setCurrentPage }) => {
           <Text style={styles.colorBlue}>Beyond"</Text>
         </Animated.Text>
         <Animated.Image
-          source={require("../assets/images/sitAstro.png")}
+          source={require("../assets/images/sitAstro-min.png")}
           style={[styles.sitAstro, astronautStyle]}
         />
       </View>

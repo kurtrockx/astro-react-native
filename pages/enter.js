@@ -7,12 +7,6 @@ import {
 } from "react-native";
 import Colors from "../style/colors";
 import { useFonts } from "expo-font";
-import {
-  useSharedValue,
-  withSpring,
-  useAnimatedStyle,
-} from "react-native-reanimated";
-import Animated from "react-native-reanimated";
 
 const Enter = ({ setCurrentPage }) => {
   // FONTSSSSS
@@ -27,7 +21,7 @@ const Enter = ({ setCurrentPage }) => {
     <View style={styles.container}>
       {/* MOON */}
       <Image
-        source={require("../assets/images/MOON.png")}
+        source={require("../assets/images/MOON-min.png")}
         style={styles.moonImage}
       />
 
