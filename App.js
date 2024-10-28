@@ -9,7 +9,7 @@ const Dashboard = lazy(() => import("./pages/dashboard"));
 const AboutUs = lazy(() => import("./pages/aboutUs"));
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState("AboutUs");
+  const [currentPage, setCurrentPage] = useState("Dashboard");
 
   const pageRender = () => {
     switch (currentPage) {

@@ -1,7 +1,13 @@
-import { StyleSheet, View, Text, Image } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  TouchableWithoutFeedback,
+} from "react-native";
 import { useFonts } from "expo-font";
 import Colors from "../../style/colors";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Animated from "react-native-reanimated";
 import {
   useSharedValue,
@@ -11,7 +17,14 @@ import {
   useAnimatedStyle,
 } from "react-native-reanimated";
 
-const firstLook = ({ style }) => {
+const firstLook = ({ scroll1, scroll2, scroll3, scrollViewRef }) => {
+  const scrollToSection = (y) => {
+    scrollViewRef.current.scrollTo({
+      y: y,
+      animated: true,
+    });
+  };
+
   //ANIMATIONNNNNNNNNNNN
   const fromLeft = useSharedValue(-400);
   useEffect(() => {
@@ -66,7 +79,7 @@ const firstLook = ({ style }) => {
   // FONTSSSSS
 
   return (
-    <Animated.View style={[styles.container, style, opacityStyle]}>
+    <Animated.View style={[styles.container, opacityStyle]}>
       <Image
         source={require("../../assets/dashboardPics/firstAstronaut.png")}
         style={styles.firstAstronaut}
@@ -82,6 +95,12 @@ const firstLook = ({ style }) => {
             style={styles.cardImage}
             resizeMode="contain"
           />
+          {/* scroll */}
+          <TouchableWithoutFeedback onPress={() => scrollToSection(scroll1)}>
+            <View style={styles.learnMore}>
+              <Text style={styles.learnText}>Learn More</Text>
+            </View>
+          </TouchableWithoutFeedback>
         </Animated.View>
         <Animated.View style={[styles.card, fromRightStyle]}>
           <Image
@@ -89,6 +108,11 @@ const firstLook = ({ style }) => {
             style={styles.cardImage}
             resizeMode="contain"
           />
+          <TouchableWithoutFeedback onPress={() => scrollToSection(scroll2)}>
+            <View style={styles.learnMore}>
+              <Text style={styles.learnText}>Learn More</Text>
+            </View>
+          </TouchableWithoutFeedback>
         </Animated.View>
         <Animated.View style={[styles.card, fromLeftStyle]}>
           <Image
@@ -96,6 +120,11 @@ const firstLook = ({ style }) => {
             style={styles.cardImage}
             resizeMode="contain"
           />
+          <TouchableWithoutFeedback onPress={() => scrollToSection(scroll3)}>
+            <View style={styles.learnMore}>
+              <Text style={styles.learnText}>Learn More</Text>
+            </View>
+          </TouchableWithoutFeedback>
         </Animated.View>
       </View>
       <View style={styles.start}>
@@ -169,6 +198,25 @@ const styles = StyleSheet.create({
     color: Colors.white,
     fontSize: 14,
     fontFamily: "LeagueSpartan-Bold",
+  },
+  learnMore: {
+    position: "absolute",
+    right: 32,
+    bottom: -8,
+    width: 100,
+    paddingHorizontal: 12,
+    paddingVertical: 2,
+    backgroundColor: Colors.black,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: Colors.white,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  learnText: {
+    fontFamily: "LeagueSpartan-Medium",
+    color: "white",
+    textAlign: "center",
   },
 });
 

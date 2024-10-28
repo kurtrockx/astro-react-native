@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   },
   btn1: {
     marginTop: 40,
-    backgroundColor: Colors.lightBlue,
+    backgroundColor: Colors.white,
   },
   btn2: {
     backgroundColor: Colors.blackishGrey,

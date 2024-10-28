@@ -14,7 +14,7 @@ import FirstLook from "./components/firstLook";
 import SecondLook from "./components/secondLook";
 import ThirdLook from "./components/thirdLook";
 import FourthLook from "./components/fourthLook";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Animated from "react-native-reanimated";
 import {
   useSharedValue,
@@ -24,6 +24,15 @@ import {
 } from "react-native-reanimated";
 
 const Dashboard = ({ setCurrentPage }) => {
+
+  const scrollViewRef = useRef(null);
+  const scrollToSection = (y) => {
+    scrollViewRef.current.scrollTo({
+      y: y,
+      animated: true,
+    });
+  };
+
   //ANIMATION
   const opacityBegone = useSharedValue(0);
   useEffect(() => {
@@ -45,14 +54,23 @@ const Dashboard = ({ setCurrentPage }) => {
   if (!fontsLoaded) return;
   // FONTSSSSS
 
+  const scroll1 = 660 ;
+  const scroll2 = 1340;
+  const scroll3 = 3000;
+
   return (
     <View style={styles.nav}>
-      <ScrollView contentContainerStyle={styles.container}>
+      <ScrollView contentContainerStyle={styles.container} ref={scrollViewRef}>
         <Banner source={require("../assets/images/banner.png")} />
-        <FirstLook />
-        {/* <SecondLook /> */}
-        {/* <ThirdLook />  */}
-        {/* <FourthLook /> */}
+        <FirstLook
+          scroll1={scroll1}
+          scroll2={scroll2}
+          scroll3={scroll3}
+          scrollViewRef={scrollViewRef}
+        />
+        <SecondLook />
+        <ThirdLook /> 
+        <FourthLook />
         <View style={styles.pageHeader}></View>
 
         <View style={styles.mainContent}></View>

@@ -242,7 +242,7 @@ const styles = StyleSheet.create({
   },
   btn1: {
     marginTop: 40,
-    backgroundColor: Colors.lightBlue,
+    backgroundColor: Colors.white,
   },
   btn2: {
     backgroundColor: Colors.black,
@@ -304,12 +304,14 @@ const styles = StyleSheet.create({
   },
   loginButton: {
     marginVertical: 16,
-    backgroundColor: Colors.black,
+    backgroundColor: Colors.blue,
     width: "100%",
+    borderWidth: 1,
+    borderColor: Colors.black,
     height: 40,
     paddingVertical: 4,
     margin: "auto",
-    borderRadius: 5,
+    borderRadius: 6,
   },
   loginButtonText: {
     fontSize: 18,
