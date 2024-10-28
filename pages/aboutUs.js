@@ -13,15 +13,15 @@ import AboutModals from "./components/aboutModals";
 const AboutUs = ({ setCurrentPage }) => {
   const member = [
     {
-      pic: require("../assets/images/members/1.png"),
+      pic: require("../assets/images/members/11.png"),
       logo: require("../assets/images/members/2.png"),
     },
-    { pic: require("../assets/images/members/2.png") },
-    { pic: require("../assets/images/members/3.png") },
-    { pic: require("../assets/images/members/4.png") },
-    { pic: require("../assets/images/members/5.png") },
-    { pic: require("../assets/images/members/6.png") },
-    { pic: require("../assets/images/members/7.png") },
+    { pic: require("../assets/images/members/22.png") },
+    { pic: require("../assets/images/members/33.png") },
+    { pic: require("../assets/images/members/44.png") },
+    { pic: require("../assets/images/members/55.png") },
+    { pic: require("../assets/images/members/66.png") },
+    { pic: require("../assets/images/members/77.png") },
   ];
   // FONTSSSSS
   const [fontsLoaded] = useFonts({
@@ -44,7 +44,7 @@ const AboutUs = ({ setCurrentPage }) => {
         </View>
       </ScrollView>
       <View style={styles.navigation}>
-        <TouchableWithoutFeedback onPress={() => setCurrentPage("Login")}>
+        <TouchableWithoutFeedback onPress={() => setCurrentPage("AboutUs")}>
           <Image
             source={require("../assets/images/navigation/activeAbout.png")}
             style={styles.navLogo}
@@ -66,12 +66,17 @@ const AboutUs = ({ setCurrentPage }) => {
           />
         </TouchableWithoutFeedback>
       </View>
+      <Image
+        source={require("../assets/images/back.png")}
+        resizeMode="contain"
+        style={styles.back}
+      />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  navbar: { flex: 1 },
+  navbar: { flex: 1, paddingBottom: 40 },
   container: {
     flexGrow: 1,
   },
@@ -95,11 +100,19 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: Colors.white,
     borderWidth: 1,
-    borderColor: Colors.black
+    borderColor: Colors.black,
   },
   navLogo: {
-    width: 40,
-    height: 40,
+    width: 32,
+    height: 32,
+  },
+  back: {
+    position: "absolute",
+    zIndex: -1,
+    bottom: -120,
+    left: 0,
+    width: "100%",
+    height: "100%",
   },
 });
 

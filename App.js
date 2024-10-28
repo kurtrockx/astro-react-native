@@ -25,7 +25,7 @@ export default function App() {
         return <EnterPage />;
     }
   };
-  
+
 
   return (
     <View style={styles.mainContainer}>

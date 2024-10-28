@@ -4,17 +4,38 @@ import {
   ScrollView,
   Text,
   TouchableHighlight,
+  TouchableWithoutFeedback,
   Image,
 } from "react-native";
 import Colors from "../style/colors";
 import { useFonts } from "expo-font";
 import Banner from "./components/banner";
-import LoginRight from "./components/loginToTheRight";
 import FirstLook from "./components/firstLook";
 import SecondLook from "./components/secondLook";
 import ThirdLook from "./components/thirdLook";
 import FourthLook from "./components/fourthLook";
-const Enter = ({ setCurrentPage }) => {
+import React, { useEffect } from "react";
+import Animated from "react-native-reanimated";
+import {
+  useSharedValue,
+  withTiming,
+  withDelay,
+  useAnimatedStyle,
+} from "react-native-reanimated";
+
+const Dashboard = ({ setCurrentPage }) => {
+  //ANIMATION
+  const opacityBegone = useSharedValue(0);
+  useEffect(() => {
+    opacityBegone.value = withDelay(350, withTiming(1, { duration: 200 }));
+  }, []);
+
+  const opacityStyle = useAnimatedStyle(() => {
+    return {
+      opacity: opacityBegone.value,
+    };
+  });
+
   // FONTSSSSS
   const [fontsLoaded] = useFonts({
     "LeagueSpartan-Bold": require("../assets/fonts/LeagueSpartan-Bold.ttf"),
@@ -25,39 +46,70 @@ const Enter = ({ setCurrentPage }) => {
   // FONTSSSSS
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Banner source={require("../assets/images/banner.png")} />
-      <FirstLook />
-      {/* <SecondLook /> */}
-      {/* <ThirdLook />  */}
-      {/* <FourthLook /> */}
-      <View style={styles.pageHeader}></View>
+    <View style={styles.nav}>
+      <ScrollView contentContainerStyle={styles.container}>
+        <Banner source={require("../assets/images/banner.png")} />
+        <FirstLook />
+        {/* <SecondLook /> */}
+        {/* <ThirdLook />  */}
+        {/* <FourthLook /> */}
+        <View style={styles.pageHeader}></View>
 
-      <View style={styles.mainContent}></View>
-      <View style={styles.end}>
-        <Text style={styles.endText}>
-          You've reached the end of this exploration. Thank you for joining us
-          on this cosmic journey!
-        </Text>
-        <Image
-          source={require("../assets/images/trivia/rocket.png")}
-          style={styles.endImage}
-          resizeMode="contain"
-        />
+        <View style={styles.mainContent}></View>
+        <View style={styles.end}>
+          <Text style={styles.endText}>
+            You've reached the end of this exploration. Thank you for joining us
+            on this cosmic journey!
+          </Text>
+          <Image
+            source={require("../assets/images/trivia/rocket.png")}
+            style={styles.endImage}
+            resizeMode="contain"
+          />
+        </View>
+
+        <TouchableHighlight
+          style={styles.button}
+          onPress={() => setCurrentPage("Enter")}
+          underlayColor={Colors.greyishBlue}
+        >
+          <Text style={[styles.ButtonText]}>Log In</Text>
+        </TouchableHighlight>
+      </ScrollView>
+      <View style={styles.navigation}>
+        <TouchableWithoutFeedback onPress={() => setCurrentPage("AboutUs")}>
+          <Image
+            source={require("../assets/images/navigation/about.png")}
+            style={styles.navLogo}
+            resizeMode="contain"
+          />
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={() => setCurrentPage("Dashboard")}>
+          <Image
+            source={require("../assets/images/navigation/homeActive.png")}
+            style={styles.navLogo}
+            resizeMode="contain"
+          />
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={() => setCurrentPage("Enter")}>
+          <Image
+            source={require("../assets/images/navigation/logout.png")}
+            style={styles.navLogo}
+            resizeMode="contain"
+          />
+        </TouchableWithoutFeedback>
       </View>
-
-      <TouchableHighlight
-        style={styles.button}
-        onPress={() => setCurrentPage("Enter")}
-        underlayColor={Colors.greyishBlue}
-      >
-        <Text style={[styles.ButtonText]}>Log In</Text>
-      </TouchableHighlight>
-    </ScrollView>
+      <Animated.Image
+        source={require("../assets/images/back.png")}
+        resizeMode="contain"
+        style={[styles.back, opacityStyle]}
+      />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  nav: { flex: 1 },
   container: {
     flexGrow: 1,
     paddingBottom: 20,
@@ -105,6 +157,32 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
   },
+  navigation: {
+    position: "absolute",
+    bottom: 0,
+    width: "100%",
+    height: 60,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    flexDirection: "row",
+    backgroundColor: Colors.white,
+    borderWidth: 1,
+    borderColor: Colors.black,
+  },
+  navLogo: {
+    width: 32,
+    height: 32,
+  },
+  back: {
+    position: "absolute",
+    zIndex: -1,
+    bottom: -140,
+    left: 0,
+    width: "100%",
+    height: "100%",
+  },
 });
 
-export default Enter;
+export default Dashboard;
