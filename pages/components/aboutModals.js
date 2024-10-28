@@ -6,8 +6,6 @@ import {
   Image,
   TouchableWithoutFeedback,
 } from "react-native";
-import Colors from "../../style/colors";
-import { LinearGradient } from "expo-linear-gradient";
 import {
   useSharedValue,
   withTiming,
@@ -15,13 +13,13 @@ import {
 } from "react-native-reanimated";
 import Animated from "react-native-reanimated";
 
-const CustomSizedModal = ({ property, style }) => {
+const AboutModals = ({ property, style }) => {
   // State to determine if the info is shown or hidden
   const [showInfo, setShowInfo] = useState(false);
 
   // Shared values for animations
   const imageOffset = useSharedValue(0);
-  const infoOffset = useSharedValue(100); // Hidden initially
+  const infoOffset = useSharedValue(300); // Hidden initially
 
   // Animation styles for the image
   const imageStyle = useAnimatedStyle(() => ({
@@ -36,8 +34,8 @@ const CustomSizedModal = ({ property, style }) => {
   // Toggle function for the modal
   const toggleModal = () => {
     setShowInfo(!showInfo);
-    imageOffset.value = withTiming(showInfo ? 0 : -90);
-    infoOffset.value = withTiming(showInfo ? 90 : 0);
+    imageOffset.value = withTiming(showInfo ? 0 : -300);
+    infoOffset.value = withTiming(showInfo ? 300 : 0);
   };
 
   return (
@@ -47,32 +45,17 @@ const CustomSizedModal = ({ property, style }) => {
           <Image
             source={property.pic}
             style={styles.image}
-            resizeMode="cover"
+            resizeMode="contain"
           />
         </Animated.View>
         <Animated.View style={[styles.infoContainer, infoStyle]}>
-          <LinearGradient
-            colors={["#344966", "#0D1821"]}
-            style={styles.gradient}
-            start={[0.5, 1]}
-            end={[0.5, 0.1]}
-          >
-            {property.logo && (
-              <Image
-                source={property.logo}
-                style={{
-                  width: "30%",
-                  height: "30%",
-                  marginHorizontal: "auto",
-                  marginTop: 4,
-                }}
-                resizeMode="center"
-              />
-            )}
-            <View style={styles.infoTextContainer}>
-              <Text style={styles.infoText}>{property.desc}</Text>
-            </View>
-          </LinearGradient>
+          {property.logo && (
+            <Image
+              source={property.logo}
+              style={styles.logo}
+              resizeMode="contain"
+            />
+          )}
         </Animated.View>
       </View>
     </TouchableWithoutFeedback>
@@ -81,44 +64,32 @@ const CustomSizedModal = ({ property, style }) => {
 
 const styles = StyleSheet.create({
   modal: {
-    width: 80,
-    height: "100%",
-    justifyContent: "center",
-    alignItems: "center",
+    width: 300,
+    height: 160,
     borderRadius: 8,
     overflow: "hidden",
-  },
-  modalPic: {
-    position: "absolute",
-    width: "100%",
-    height: "100%",
     justifyContent: "center",
     alignItems: "center",
+  },
+  modalPic: {
+    width: "100%",
+    height: "100%",
   },
   image: {
     width: "100%",
     height: "100%",
   },
   infoContainer: {
+    position: "absolute",
     width: "100%",
     height: "100%",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: Colors.blackishGrey,
   },
-  infoText: {
-    fontSize: 7.5,
-    color: Colors.white,
-    textAlign: "center",
-  },
-  gradient: {
+  logo: {
     width: "100%",
     height: "100%",
   },
-  infoTextContainer: {
-    flex: 1,
-    padding: 5,
-  },
 });
 
-export default CustomSizedModal;
+export default AboutModals;

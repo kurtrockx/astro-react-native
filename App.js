@@ -9,7 +9,7 @@ const Dashboard = lazy(() => import("./pages/dashboard"));
 const AboutUs = lazy(() => import("./pages/aboutUs"));
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState("Enter");
+  const [currentPage, setCurrentPage] = useState("AboutUs");
 
   const pageRender = () => {
     switch (currentPage) {
@@ -19,21 +19,17 @@ export default function App() {
         return <LoginPage setCurrentPage={setCurrentPage} />;
       case "Dashboard":
         return <Dashboard setCurrentPage={setCurrentPage} />;
-      case "About Us":
-        return <AboutUs />;
+      case "AboutUs":
+        return <AboutUs setCurrentPage={setCurrentPage} />;
       default:
-        return <LoginPage />;
+        return <EnterPage />;
     }
   };
+  
 
   return (
     <View style={styles.mainContainer}>
       <StatusBar />
-      {/* GRADIENT */}
-      <LinearGradient
-        colors={["white", "transparent"]}
-        style={styles.gradient}
-      />
       <Suspense fallback={<Text>Loading...</Text>}>{pageRender()}</Suspense>
     </View>
   );
@@ -42,13 +38,6 @@ export default function App() {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: Colors.background,
-  },
-  gradient: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "42%",
+    backgroundColor: Colors.white,
   },
 });

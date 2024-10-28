@@ -4,22 +4,16 @@ import {
   ScrollView,
   Text,
   TouchableHighlight,
+  Image,
 } from "react-native";
 import Colors from "../style/colors";
 import { useFonts } from "expo-font";
-import {
-  useSharedValue,
-  withSpring,
-  useAnimatedStyle,
-} from "react-native-reanimated";
-import Animated from "react-native-reanimated";
-import { useState, useEffect } from "react";
 import Banner from "./components/banner";
 import LoginRight from "./components/loginToTheRight";
 import FirstLook from "./components/firstLook";
 import SecondLook from "./components/secondLook";
 import ThirdLook from "./components/thirdLook";
-
+import FourthLook from "./components/fourthLook";
 const Enter = ({ setCurrentPage }) => {
   // FONTSSSSS
   const [fontsLoaded] = useFonts({
@@ -32,18 +26,30 @@ const Enter = ({ setCurrentPage }) => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <LoginRight style={styles.loginRight} />
-      <Banner />
-      <FirstLook style={styles.firstLook} />
-      <SecondLook style={styles.secondLook} />
-      <ThirdLook />
+      <Banner source={require("../assets/images/banner.png")} />
+      <FirstLook />
+      {/* <SecondLook /> */}
+      {/* <ThirdLook />  */}
+      {/* <FourthLook /> */}
       <View style={styles.pageHeader}></View>
 
       <View style={styles.mainContent}></View>
+      <View style={styles.end}>
+        <Text style={styles.endText}>
+          You've reached the end of this exploration. Thank you for joining us
+          on this cosmic journey!
+        </Text>
+        <Image
+          source={require("../assets/images/trivia/rocket.png")}
+          style={styles.endImage}
+          resizeMode="contain"
+        />
+      </View>
+
       <TouchableHighlight
         style={styles.button}
         onPress={() => setCurrentPage("Enter")}
-        underlayColor={Colors.medium}
+        underlayColor={Colors.greyishBlue}
       >
         <Text style={[styles.ButtonText]}>Log In</Text>
       </TouchableHighlight>
@@ -73,10 +79,31 @@ const styles = StyleSheet.create({
     width: 100,
     paddingHorizontal: 20,
     paddingVertical: 10,
-    backgroundColor: Colors.heavy,
+    backgroundColor: Colors.blackishGrey,
   },
   ButtonText: {
-    color: "white",
+    color: Colors.white,
+  },
+  end: {
+    marginHorizontal: "center",
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  endText: {
+    width: "60%",
+    textAlign: "center",
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    borderColor: Colors.black,
+    fontSize: 10,
+    fontFamily: "LeagueSpartan-Medium",
+    color: Colors.black,
+    paddingHorizontal: 10,
+  },
+  endImage: {
+    width: 48,
+    height: 48,
   },
 });
 

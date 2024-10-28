@@ -10,7 +10,7 @@ import {
 } from "react-native-reanimated";
 import Animated from "react-native-reanimated";
 
-const Banner = ({ style, style2 }) => {
+const Banner = ({ source }) => {
   //ANIMATIONNNNNNNNNNNN
   const fromUp = useSharedValue(-400);
   useEffect(() => {
@@ -27,7 +27,7 @@ const Banner = ({ style, style2 }) => {
 
   const opacityBegone = useSharedValue(0);
   useEffect(() => {
-    opacityBegone.value = withDelay(500, withTiming(1, { duration: 200 }));
+    opacityBegone.value = withDelay(0, withTiming(1, { duration: 200 }));
   }, []);
 
   const opacityStyle = useAnimatedStyle(() => {
@@ -48,31 +48,18 @@ const Banner = ({ style, style2 }) => {
   return (
     <Animated.View style={[styles.container, fromUpStyle]}>
       <Image
-        source={require("../../assets/dashboardPics/banner-min.png")}
+        source={source}
         style={styles.imageContainer}
         resizeMode="contain"
       />
-      <View style={styles.title}>
-        <Text style={styles.textTitle}>ASTRO</Text>
-        <Image
-          source={require("../../assets/images/sitAstro2-min.png")}
-          style={styles.titleLogo}
-        />
-      </View>
-      <Animated.View style={opacityStyle}>
-        <Text style={styles.welcome}>Welcome to Astro!</Text>
-        <Text style={styles.welcomeDesc}>
-          Get ready to explore the incredible world of astronomy, where the
-          universe opens its doors to endless discoveries!
-        </Text>
-      </Animated.View>
     </Animated.View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    height: 178,
+    position: "relative",
+    height: 167,
     overflow: "hidden",
   },
   imageContainer: {

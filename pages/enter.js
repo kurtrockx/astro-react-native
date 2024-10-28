@@ -33,7 +33,7 @@ const Enter = ({ setCurrentPage }) => {
       <TouchableHighlight
         style={[styles.button, styles.btn1]}
         onPress={() => setCurrentPage("Login")}
-        underlayColor={Colors.medium}
+        underlayColor={Colors.greyishBlue}
       >
         <Text style={[styles.ButtonText, styles.btn1Text]}>Log In</Text>
       </TouchableHighlight>
@@ -41,7 +41,7 @@ const Enter = ({ setCurrentPage }) => {
       <TouchableHighlight
         style={[styles.button, styles.btn2]}
         onPress={() => setCurrentPage("Dashboard")}
-        underlayColor={'grey'}
+        underlayColor={Colors.black}
       >
         <Text style={[styles.ButtonText, styles.btn2Text]}>About Us</Text>
       </TouchableHighlight>
@@ -58,9 +58,9 @@ const styles = StyleSheet.create({
   },
   moonImage: {
     position: "absolute",
-    bottom: -220,
     width: 400,
     height: 400,
+    top: 550,
   },
   title: {
     position: "absolute",
@@ -83,20 +83,20 @@ const styles = StyleSheet.create({
   },
   btn1: {
     marginTop: 40,
-    backgroundColor: Colors.light,
+    backgroundColor: Colors.lightBlue,
   },
   btn2: {
-    backgroundColor: "black",
+    backgroundColor: Colors.blackishGrey,
   },
   ButtonText: {
     fontFamily: "LeagueSpartan-Bold",
     fontSize: 20,
   },
   btn1Text: {
-    color: Colors.heavy,
+    color: Colors.dark,
   },
   btn2Text: {
-    color: "white",
+    color: Colors.white,
   },
 });
 

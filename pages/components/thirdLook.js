@@ -230,15 +230,16 @@ const styles = StyleSheet.create({
     marginTop: 4,
     width: "100%",
     borderWidth: 1,
-    borderColor: "black",
+    borderColor: Colors.black,
     borderRadius: 10,
     flexDirection: "column",
     gap: 8,
+    paddingBottom: 32,
   },
   introContainer: {
     width: "100%",
     borderBottomWidth: 1,
-    borderColor: "black",
+    borderColor: Colors.black,
     justifyContent: "center",
     alignItems: "center",
     paddingVertical: 8,
@@ -260,7 +261,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 20,
     fontFamily: "LeagueSpartan-Bold",
-    color: Colors.heavy,
+    color: Colors.darkBlue,
     paddingVertical: 2,
   },
   whatDesc: {
@@ -278,7 +279,7 @@ const styles = StyleSheet.create({
   sectionHeader: {
     fontFamily: "LeagueSpartan-Bold",
     fontSize: 20,
-    color: Colors.heavy,
+    color: Colors.darkBlue,
   },
   modalContainer: {
     height: 158,

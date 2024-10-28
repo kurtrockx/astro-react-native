@@ -1,3 +1,9 @@
 hello {
-    color: rgba(0, 0, 0, 0.522);
+  white: "#ffffff";
+  lightest: "#e9f0f8";
+  lighter: "#b4cded";
+  light: "#7d92ad";
+  dark: "#344966";
+  darker: "#0d1821";
+  darkest: "#1e1e1e";
 }

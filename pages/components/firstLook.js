@@ -15,7 +15,8 @@ const firstLook = ({ style }) => {
   //ANIMATIONNNNNNNNNNNN
   const fromLeft = useSharedValue(-400);
   useEffect(() => {
-    fromLeft.value = withDelay(300,
+    fromLeft.value = withDelay(
+      300,
       withSpring(0, {
         damping: 100,
         stiffness: 200,
@@ -29,7 +30,8 @@ const firstLook = ({ style }) => {
   });
   const fromRight = useSharedValue(400);
   useEffect(() => {
-    fromRight.value = withDelay(300,
+    fromRight.value = withDelay(
+      300,
       withSpring(0, {
         damping: 100,
         stiffness: 200,
@@ -52,7 +54,6 @@ const firstLook = ({ style }) => {
       opacity: opacityBegone.value,
     };
   });
-
 
   // FONTSSSSS
   const [fontsLoaded] = useFonts({
@@ -124,7 +125,7 @@ const styles = StyleSheet.create({
     marginTop: 4,
     width: "100%",
     borderWidth: 1,
-    borderColor: "black",
+    borderColor: Colors.black,
     borderRadius: 10,
     flexDirection: "column",
     gap: 8,
@@ -132,17 +133,19 @@ const styles = StyleSheet.create({
   },
   discoverTextContainer: {
     position: "absolute",
-    width: 80,
+    width: 120,
     height: 30,
     left: "50%",
-    transform: [{ translateX: -40 }],
+    transform: [{ translateX: -60 }],
     top: -14,
-    backgroundColor: Colors.background,
+    backgroundColor: Colors.white,
   },
   discoText: {
     fontFamily: "LeagueSpartan-Medium",
     fontSize: 18,
     textAlign: "center",
+    letterSpacing: 3,
+    color: Colors.greyishBlue,
   },
   card: {
     width: "100%",
@@ -154,7 +157,7 @@ const styles = StyleSheet.create({
     height: "96%",
   },
   start: {
-    backgroundColor: Colors.darkGrey,
+    backgroundColor: Colors.blackishGrey,
     width: "90%",
     marginTop: 20,
     marginHorizontal: "auto",
@@ -163,7 +166,7 @@ const styles = StyleSheet.create({
   },
   startText: {
     textAlign: "center",
-    color: "white",
+    color: Colors.white,
     fontSize: 14,
     fontFamily: "LeagueSpartan-Bold",
   },

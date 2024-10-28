@@ -1,5 +1,5 @@
-import { View, Text, StyleSheet, Image } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
+import { View, StyleSheet, Image } from "react-native";
+import Colors from "../../style/colors";
 
 const thirdLookModals = ({ property }) => {
   return (
@@ -45,11 +45,11 @@ const styles = StyleSheet.create({
     height: "100%",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "Colors.heaviest",
+    backgroundColor: Colors.blackishGrey,
   },
   infoText: {
     fontSize: 7.5,
-    color: "white",
+    color: Colors.white,
     textAlign: "center",
   },
   gradient: {

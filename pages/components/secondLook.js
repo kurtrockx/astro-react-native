@@ -2,8 +2,29 @@ import { StyleSheet, View, Text, ScrollView } from "react-native";
 import { useFonts } from "expo-font";
 import Colors from "../../style/colors";
 import CustomSizedModal from "../components/modals";
+import React, { useEffect } from "react";
+import Animated from "react-native-reanimated";
+import {
+  useSharedValue,
+  withSpring,
+  withTiming,
+  withDelay,
+  useAnimatedStyle,
+} from "react-native-reanimated";
 
 const secondLook = ({ style }) => {
+  //ANIMATION
+  const opacityBegone = useSharedValue(0);
+  useEffect(() => {
+    opacityBegone.value = withDelay(350, withTiming(1, { duration: 200 }));
+  }, []);
+
+  const opacityStyle = useAnimatedStyle(() => {
+    return {
+      opacity: opacityBegone.value,
+    };
+  });
+
   const branches = [
     {
       logo: require("../../assets/images/modalPics/branches/solar.png"),
@@ -84,7 +105,7 @@ const secondLook = ({ style }) => {
   // FONTSSSSS
 
   return (
-    <View style={[styles.container, style]}>
+    <Animated.View style={[styles.container, style, opacityStyle]}>
       <View style={styles.borderContainer}>
         <View style={styles.introContainer}>
           <Text style={styles.intro}>INTRODUCTION TO ASTRONOMY</Text>
@@ -149,7 +170,7 @@ const secondLook = ({ style }) => {
           </View>
         </View>
       </View>
-    </View>
+    </Animated.View>
   );
 };
 
@@ -163,7 +184,7 @@ const styles = StyleSheet.create({
     marginTop: 4,
     width: "100%",
     borderWidth: 1,
-    borderColor: "black",
+    borderColor: Colors.black,
     borderRadius: 10,
     flexDirection: "column",
     gap: 8,
@@ -171,7 +192,7 @@ const styles = StyleSheet.create({
   introContainer: {
     width: "100%",
     borderBottomWidth: 1,
-    borderColor: "black",
+    borderColor: Colors.black,
     justifyContent: "center",
     alignItems: "center",
     paddingVertical: 4,
@@ -192,7 +213,7 @@ const styles = StyleSheet.create({
   whatTitle: {
     fontSize: 20,
     fontFamily: "LeagueSpartan-Bold",
-    color: Colors.heavy,
+    color: Colors.darkBlue,
   },
   whatDesc: {
     fontFamily: "LeagueSpartan-Regular",
@@ -208,7 +229,7 @@ const styles = StyleSheet.create({
   sectionHeader: {
     fontFamily: "LeagueSpartan-Bold",
     fontSize: 20,
-    color: Colors.heavy,
+    color: Colors.darkBlue,
   },
   sectionDesc: {
     fontFamily: "LeagueSpartan-Regular",
