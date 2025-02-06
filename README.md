@@ -2,6 +2,4 @@
 This is a mobile app made to let users get a taste of a little bit of astronomy🚀
 
 ## Demo Video
-```
 [ASTRO react native app DEMO](https://youtube.com/shorts/JPtNzqwbKsI?feature=share)
-```
